@@ -25,7 +25,7 @@ jobs:
         id: version
         run: |
           VERSION="V1.0-${GITHUB_SHA::7}"
-        echo "build_version=$VERSION" >> $GITHUB_OUTPUT
+          echo "build_version=$VERSION" >> $GITHUB_OUTPUT
       - name: build
         run: echo "Building ${{ inputs.app_name }} for ${{ inputs.environment }}"
       - name: check docker token
