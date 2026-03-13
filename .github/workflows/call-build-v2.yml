@@ -1,0 +1,17 @@
+---
+name: call reusable build v2
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: string
+        default: staging
+        required: true
+jobs:
+  build:
+    uses: ./.github/workflows/reusable-build-v2.yml
+    with:
+      app_name: my-web-application
+      environment: ${{ inputs.environment }}
+    secrets:
+      docker_token: ${{ secrets.DOCKER_TOKEN }}
