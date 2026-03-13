@@ -1,0 +1,12 @@
+---
+name: Call reusable build
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    uses: ./.github/workflows/reusable-build.yml
+    with:
+      app_name: "my-web-app"
+      environment: "profuction"
+    secrets:
+      docker_token: ${{ secrets.DOCKER_TOKEN }}
